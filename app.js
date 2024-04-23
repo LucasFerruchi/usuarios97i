@@ -69,6 +69,8 @@ let contenedorCards = document.getElementById("contenedor-cards");
 
 //B - Funcion para renderizar y crear las cards
 const listarUsuarios = () => {
+  //limpie el html (contenedorCards)
+
   //a-iterar la BD
   data.forEach((item) => {
     //Crear los componentes de HTML
@@ -97,8 +99,6 @@ const listarUsuarios = () => {
   });
 };
 
-listarUsuarios();
-
 /* Ejemplo de card
 
   <div class="col">
@@ -118,35 +118,58 @@ listarUsuarios();
 
   */
 
-// //! --------------------------------------------------------------------------------------------------------------------
-// //!2 - Trabajar con los botones para ordenar
+//! --------------------------------------------------------------------------------------------------------------------
+//!2 - Trabajar con los botones para ordenar
 
-// //A - Metodo sort REPASO ---------------------------------------------------------------------------------------------------
-// //para numeros
-// let numeros = [12, 1, 4, 675, 45, 87, 2, 23];
+//A - Metodo "sort" REPASO ---------------------------------------------------------------------------------------------------
+//para numeros
+let numeros = [12, 1, 4, 675, 45, 87, 2, 23];
 
-// let numerosOrdenados1 = numeros.sort();
-// console.log(numerosOrdenados1);
+let numerosOrdenados1 = numeros.sort();
+console.log(numerosOrdenados1);
 
-// let numerosOrdenados2 = numeros.sort((a, b) => a - b);
-// console.log(numerosOrdenados2);
+let numerosOrdenados2 = numeros.sort((a, b) => a - b);
+console.log(numerosOrdenados2);
 
 // //para array de objetos
-// // usuarios.sort((a, b) => a - b);
-// // console.log(usuarios);
-
-// usuarios.sort((a, b) => {
-//   if (a.last_name > b.last_name) {
-//     return 1;
-//   } else if (a.last_name < b.last_name) {
-//     return -1;
-//   } else {
-//     return 0; //Si son iguales
-//   }
-// });
+// usuarios.sort((a, b) => a - b);
 // console.log(usuarios);
 
-// //B - Funcion para ordenar alfabeticamente
+usuarios.sort((a, b) => {
+  if (a.last_name > b.last_name) {
+    return 1;
+  } else if (a.last_name < b.last_name) {
+    return -1;
+  } else {
+    return 0; //Si son iguales
+  }
+});
+console.log(usuarios);
+
+//B - Funcion para ordenar alfabeticamente
+const ordenAlfabetico = (valor = 0) => {
+  //limpiar el contenedor html
+  contenedorCards.innerHTML = "";
+
+  data.sort((a, b) => {
+    if (a.last_name > b.last_name) {
+      return 1;
+    } else if (a.last_name < b.last_name) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+
+  //orden de la z-a
+  if (valor != 0) {
+    data.reverse();
+  }
+
+  listarUsuarios();
+};
+
+listarUsuarios();
 
 //! --------------------------------------------------------------------------------------------------------------------
 //!3 - Agregar nuevo usuario
