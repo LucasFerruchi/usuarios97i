@@ -56,7 +56,8 @@
         <h2>Agregar nuevo usuario</h2>
 
         <div class="row mb-5">
-          <form>
+          <form onsubmit="agregarUsuario(event)">
+            <!-- <form> -->
             <div class="row">
               <div class="col-sm-12 col-md-6 my-2 mx-auto">
                 <label for="nombre" class="form-label">Nombre </label>
@@ -66,7 +67,7 @@
                   placeholder="First name"
                   aria-label="First name"
                   id="nombre"
-                  requiered
+                  required
                 />
               </div>
               <div class="col-sm-12 col-md-6 my-2 mx-auto">
@@ -78,7 +79,7 @@
                   placeholder="Last name"
                   aria-label="Last name"
                   id="apellido"
-                  requiered
+                  required
                 />
               </div>
             </div>
@@ -89,8 +90,7 @@
                 class="form-control"
                 id="email"
                 aria-describedby="emailHelp"
-                4
-                requiered
+                required
               />
             </div>
 
@@ -100,7 +100,7 @@
                 type="text"
                 class="form-control"
                 placeholder="URL de la imagen"
-                requiered
+                required
                 id="img"
               />
             </div>

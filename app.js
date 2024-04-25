@@ -1,64 +1,64 @@
 //Clase de Usuario
 class Usuario {
-  constructor(id, mail, first_name, last_name, avatar) {
+  constructor(id, first_name, last_name, mail, avatar) {
     this.id = id;
-    this.mail = mail;
     this.first_name = first_name;
     this.last_name = last_name;
+    this.mail = mail;
     this.avatar = avatar;
   }
 }
 
-//Arreglo
-let usuarios = [
-  {
-    id: 7,
-    email: "michael.lawson@reqres.in",
-    first_name: "Michael",
-    last_name: "Lawson",
-    avatar: "http://reqres.in/img/faces/7-image.jpg",
-  },
-  {
-    id: 8,
-    email: "lindsay.ferguson@reqres.in",
-    first_name: "Lindsay",
-    last_name: "Ferguson",
-    avatar: "http://reqres.in/img/faces/8-image.jpg",
-  },
+// //Arreglo de "ejemplo" para iniciar el desarrollo
+// let usuarios = [
+//   {
+//     id: 7,
+//     email: "michael.lawson@reqres.in",
+//     first_name: "Michael",
+//     last_name: "Lawson",
+//     avatar: "http://reqres.in/img/faces/7-image.jpg",
+//   },
+//   {
+//     id: 8,
+//     email: "lindsay.ferguson@reqres.in",
+//     first_name: "Lindsay",
+//     last_name: "Ferguson",
+//     avatar: "http://reqres.in/img/faces/8-image.jpg",
+//   },
 
-  {
-    id: 9,
-    email: "tobias.funque@reqres.in",
-    first_name: "Tobias",
-    last_name: "Funke",
-    avatar: "http://reqres.in/img/faces/9-image.jpg",
-  },
-  {
-    id: 10,
-    email: "byron.fields@reqres.in",
-    first_name: "Byron",
-    last_name: "Fields",
-    avatar: "http://reqres.in/img/faces/10-image.jpg",
-  },
-  {
-    id: 12,
-    email: "rachel.howel@reqres.in",
-    first_name: "Rachel",
-    last_name: "Howel",
-    avatar: "http://reqres.in/img/faces/12-image.jpg",
-  },
-  {
-    id: 11,
-    email: "george.edwards@reqres.in",
-    first_name: "George",
-    last_name: "Edwards",
-    avatar: "http://reqres.in/img/faces/11-image.jpg",
-  },
-];
-console.log(usuarios);
+//   {
+//     id: 9,
+//     email: "tobias.funque@reqres.in",
+//     first_name: "Tobias",
+//     last_name: "Funke",
+//     avatar: "http://reqres.in/img/faces/9-image.jpg",
+//   },
+//   {
+//     id: 10,
+//     email: "byron.fields@reqres.in",
+//     first_name: "Byron",
+//     last_name: "Fields",
+//     avatar: "http://reqres.in/img/faces/10-image.jpg",
+//   },
+//   {
+//     id: 12,
+//     email: "rachel.howel@reqres.in",
+//     first_name: "Rachel",
+//     last_name: "Howel",
+//     avatar: "http://reqres.in/img/faces/12-image.jpg",
+//   },
+//   {
+//     id: 11,
+//     email: "george.edwards@reqres.in",
+//     first_name: "George",
+//     last_name: "Edwards",
+//     avatar: "http://reqres.in/img/faces/11-image.jpg",
+//   },
+// ];
+// console.log(usuarios);
 
-//Enviamos el arreglo a localS
-localStorage.setItem("usuarios", JSON.stringify(usuarios));
+// //Enviamos el arreglo a localS
+// localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
 //Recibir los datos de localS
 const data = JSON.parse(localStorage.getItem("usuarios")) || [];
@@ -69,7 +69,7 @@ let contenedorCards = document.getElementById("contenedor-cards");
 
 //B - Funcion para renderizar y crear las cards
 const listarUsuarios = () => {
-  //limpie el html (contenedorCards)
+  //limpie el html (contenedorCards)...
 
   //a-iterar la BD
   data.forEach((item) => {
@@ -85,7 +85,7 @@ const listarUsuarios = () => {
     <div class="card-body">
       <h5 class="card-title">${item.first_name} ${item.last_name}</h5>
       <p class="card-text">
-       ${item.email}
+       ${item.mail}
       </p>
     </div>
     </div>
@@ -121,30 +121,33 @@ const listarUsuarios = () => {
 //! --------------------------------------------------------------------------------------------------------------------
 //!2 - Trabajar con los botones para ordenar
 
-//A - Metodo "sort" REPASO ---------------------------------------------------------------------------------------------------
-//para numeros
-let numeros = [12, 1, 4, 675, 45, 87, 2, 23];
+//! REPASO DEL METODO SORT ----------------------------------------
+//? DESCOMENTER PARA RESPASAR
+// //A - Metodo "sort" REPASO ---------------------------------------------------------------------------------------------------
+// //para numeros
+// let numeros = [12, 1, 4, 675, 45, 87, 2, 23];
 
-let numerosOrdenados1 = numeros.sort();
-console.log(numerosOrdenados1);
+// let numerosOrdenados1 = numeros.sort();
+// console.log(numerosOrdenados1);
 
-let numerosOrdenados2 = numeros.sort((a, b) => a - b);
-console.log(numerosOrdenados2);
+// let numerosOrdenados2 = numeros.sort((a, b) => a - b);
+// console.log(numerosOrdenados2);
 
-// //para array de objetos
-// usuarios.sort((a, b) => a - b);
+// // //para array de objetos
+// // usuarios.sort((a, b) => a - b);
+// // console.log(usuarios);
+
+// usuarios.sort((a, b) => {
+//   if (a.last_name > b.last_name) {
+//     return 1;
+//   } else if (a.last_name < b.last_name) {
+//     return -1;
+//   } else {
+//     return 0; //Si son iguales
+//   }
+// });
 // console.log(usuarios);
-
-usuarios.sort((a, b) => {
-  if (a.last_name > b.last_name) {
-    return 1;
-  } else if (a.last_name < b.last_name) {
-    return -1;
-  } else {
-    return 0; //Si son iguales
-  }
-});
-console.log(usuarios);
+//!------------------------------------------------------------------
 
 //B - Funcion para ordenar alfabeticamente
 const ordenAlfabetico = (valor = 0) => {
@@ -169,10 +172,61 @@ const ordenAlfabetico = (valor = 0) => {
   listarUsuarios();
 };
 
-listarUsuarios();
-
 //! --------------------------------------------------------------------------------------------------------------------
 //!3 - Agregar nuevo usuario
 
 //A - Funcion para agregar nuevo usuario
+
+/*
+
+class Usuario {
+  constructor(id,  first_name, last_name, mail, avatar) {
+    this.id = id;
+    this.first_name = first_name;
+    this.last_name = last_name;
+    this.mail = mail;
+    this.avatar = avatar;
+  }
+}
+
+*/
+
+const agregarUsuario = (event) => {
+  //submit
+  event.preventDefault();
+
+  //Limpiar el contenedor del html
+  contenedorCards.innerHTML = "";
+
+  //CRER EL NUEVO OBJETO
+  //Crear el ID
+  let id = new Date().getTime();
+
+  //Capturar los datos del HTML-form
+  let first_name = document.querySelector("#nombre").value;
+  let last_name = document.getElementById("apellido").value;
+  let mail = document.getElementById("email").value;
+  let avatar = document.getElementById("img").value;
+
+  //validaciones...
+
+  //Creamos NUEVO USUARIO - INSTANCIA
+  let usuario = new Usuario(id, first_name, last_name, mail, avatar);
+
+  //Enviar a BD - LocalStorage
+  data.push(usuario);
+  localStorage.setItem("usuarios", JSON.stringify(data));
+
+  //Limpiar el contenedor el form
+  document.querySelector("#nombre").value = "";
+  document.getElementById("apellido").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("img").value = "";
+
+  //Imprimir en el html
+  listarUsuarios();
+};
+
+listarUsuarios();
+
 //! --------------------------------------------------------------------------------------------------------------------
