@@ -1,4 +1,5 @@
 //Clase de Usuario
+
 class Usuario {
   constructor(id, first_name, last_name, mail, avatar) {
     this.id = id;
@@ -59,6 +60,7 @@ class Usuario {
 
 // //Enviamos el arreglo a localS
 // localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
 
 //Recibir los datos de localS
 const data = JSON.parse(localStorage.getItem("usuarios")) || [];
@@ -121,6 +123,7 @@ const listarUsuarios = () => {
 //! --------------------------------------------------------------------------------------------------------------------
 //!2 - Trabajar con los botones para ordenar
 
+
 //! REPASO DEL METODO SORT ----------------------------------------
 //? DESCOMENTER PARA RESPASAR
 // //A - Metodo "sort" REPASO ---------------------------------------------------------------------------------------------------
@@ -148,6 +151,7 @@ const listarUsuarios = () => {
 // });
 // console.log(usuarios);
 //!------------------------------------------------------------------
+
 
 //B - Funcion para ordenar alfabeticamente
 const ordenAlfabetico = (valor = 0) => {
