@@ -1,64 +1,9 @@
 //Clase de Usuario
-class Usuario {
-  constructor(id, mail, first_name, last_name, avatar) {
-    this.id = id;
-    this.mail = mail;
-    this.first_name = first_name;
-    this.last_name = last_name;
-    this.avatar = avatar;
-  }
-}
 
-//Arreglo
-let usuarios = [
-  {
-    id: 7,
-    email: "michael.lawson@reqres.in",
-    first_name: "Michael",
-    last_name: "Lawson",
-    avatar: "http://reqres.in/img/faces/7-image.jpg",
-  },
-  {
-    id: 8,
-    email: "lindsay.ferguson@reqres.in",
-    first_name: "Lindsay",
-    last_name: "Ferguson",
-    avatar: "http://reqres.in/img/faces/8-image.jpg",
-  },
 
-  {
-    id: 9,
-    email: "tobias.funque@reqres.in",
-    first_name: "Tobias",
-    last_name: "Funke",
-    avatar: "http://reqres.in/img/faces/9-image.jpg",
-  },
-  {
-    id: 10,
-    email: "byron.fields@reqres.in",
-    first_name: "Byron",
-    last_name: "Fields",
-    avatar: "http://reqres.in/img/faces/10-image.jpg",
-  },
-  {
-    id: 12,
-    email: "rachel.howel@reqres.in",
-    first_name: "Rachel",
-    last_name: "Howel",
-    avatar: "http://reqres.in/img/faces/12-image.jpg",
-  },
-  {
-    id: 11,
-    email: "george.edwards@reqres.in",
-    first_name: "George",
-    last_name: "Edwards",
-    avatar: "http://reqres.in/img/faces/11-image.jpg",
-  },
-];
-console.log(usuarios);
 
-//Enviamos el arreglo a localS
-localStorage.setItem("usuarios", JSON.stringify(usuarios));
+
+
 
 //Recibir los datos de localS
 const data = JSON.parse(localStorage.getItem("usuarios")) || [];
@@ -85,7 +30,7 @@ const listarUsuarios = () => {
     <div class="card-body">
       <h5 class="card-title">${item.first_name} ${item.last_name}</h5>
       <p class="card-text">
-       ${item.email}
+       ${item.mail}
       </p>
     </div>
     </div>
@@ -121,30 +66,9 @@ const listarUsuarios = () => {
 //! --------------------------------------------------------------------------------------------------------------------
 //!2 - Trabajar con los botones para ordenar
 
-//A - Metodo "sort" REPASO ---------------------------------------------------------------------------------------------------
-//para numeros
-let numeros = [12, 1, 4, 675, 45, 87, 2, 23];
 
-let numerosOrdenados1 = numeros.sort();
-console.log(numerosOrdenados1);
 
-let numerosOrdenados2 = numeros.sort((a, b) => a - b);
-console.log(numerosOrdenados2);
 
-// //para array de objetos
-// usuarios.sort((a, b) => a - b);
-// console.log(usuarios);
-
-usuarios.sort((a, b) => {
-  if (a.last_name > b.last_name) {
-    return 1;
-  } else if (a.last_name < b.last_name) {
-    return -1;
-  } else {
-    return 0; //Si son iguales
-  }
-});
-console.log(usuarios);
 
 //B - Funcion para ordenar alfabeticamente
 const ordenAlfabetico = (valor = 0) => {
